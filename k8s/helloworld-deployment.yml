@@ -1,21 +1,22 @@
+#harness.io/skip-file-for-deploy
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: helloworld
   labels:
     app: helloworld
-    version: v1
+    version: "{{.Values.version}}"
 spec:
-  replicas: 1
+  replicas: "{{.Values.replicas}}"
   selector:
     matchLabels:
       app: helloworld
-      version: v1
   template:
     metadata:
       labels:
         app: helloworld
-        version: v1
+        version: "{{.Values.version}}"
     spec:
       containers:
       - name: helloworld
@@ -26,3 +27,4 @@ spec:
         imagePullPolicy: IfNotPresent #Always
         ports:
         - containerPort: 5000
+---
