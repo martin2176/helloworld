@@ -1,7 +1,6 @@
 ---
 name: <+pipeline.variables.name>
 namespace: <+infra.namespace>
-tlscrt: 
-
-tlskey: 
+tlscrt: <+pipeline.stages.istiotlssecret.spec.execution.steps.converttobase64.output.outputVariables.tlscertificatecertbase64>
+tlskey: <+pipeline.stages.istiotlssecret.spec.execution.steps.converttobase64.output.outputVariables.tlscertificatekeybase64>
 ---
