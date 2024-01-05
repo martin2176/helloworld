@@ -1,0 +1,4 @@
+name: <+pipeline.variables.name>
+namespace: <+infra.namespace>
+tlscrt: "123"
+tlskey: "345"
