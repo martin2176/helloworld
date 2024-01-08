@@ -1,3 +1,13 @@
-fullimagepath: <+artifacts.primary.image>
-version: <+artifacts.primary.tag>
-replicas: 1
+apiVersion: v1
+kind: Service
+metadata:
+  name: helloworld1
+  labels:
+    app: helloworld1
+    service: helloworld1
+spec:
+  ports:
+  - port: 5000
+    name: http
+  selector:
+    app: helloworld1
