@@ -1,0 +1,29 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: helloworld
+  labels:
+    app: helloworld
+    version: "{{.Values.version}}"
+spec:
+  replicas: "{{.Values.replicas}}"
+  selector:
+    matchLabels:
+      app: helloworld
+  template:
+    metadata:
+      labels:
+        app: helloworld
+        version: "{{.Values.version}}"
+    spec:
+      containers:
+      - name: helloworld
+        image: {{.Values.fullimagepath}}
+        resources:
+          requests:
+            cpu: "100m"
+        imagePullPolicy: IfNotPresent #Always
+        ports:
+        - containerPort: 5000
+---
