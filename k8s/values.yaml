@@ -1,0 +1,3 @@
+fullimagepath: <+artifacts.primary.image>
+version: <+artifacts.primary.tag>
+replicas: 2
